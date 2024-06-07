@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        background-color:rgba(168, 156, 156, 0.799);
+
+        
+    }
+    #dropdrown{
+        margin-right: 50px;
+    }
+
+    .styling {
+        display: flex;
+        cursor: pointer;
+    }
+
+    .styling div {
+        margin: 10px;
+    }
+
+    .div1 {
+        text-align: center;
+    }
+
+    #div2 {
+        text-align: center;
+    }
+    .seconddiv{
+        margin-top: 25dvh;
+    }
+    .seconddiv div{
+        margin-top: 15dvh;
+    
+    }
+
+
+
+
+
+
+</style>
+
+<body>
+    <div class="container" >
+            <div class="firstdiv" >
+            <div class="nav">
+                <select id="dropdrown">
+                    <option value="option1" >Normal</option>
+                    <option  id="op1" value="option2"  >Heading</option>
+                    <option value="option3" >Sub-heading</option>
+                </select>
+                <select id="fontstyle">
+                    <option value="select font family">select font family</option>
+                    <option value="monospace">monospace</option>
+                    <option value="serif">serif</option>
+                    <option value="sans-serif">sans-serif</option>
+                </select>
+                <div class="styling">
+                    <div id="bold"><B>B</B></div>
+                    <div id="italic"><I>I</I></div>
+                    <div id="underline"><U>U</U></div>
+                    <div id="left" onclick="aligtext('left')">left</div>
+                    <div id="center" onclick="aligtext('center')">Center</div>
+                    <div id="right" onclick="aligtext('right')">Right</div>
+                    <div id="justify" onclick="aligtext('justify')">justify</div>
+                </div>
+
+            </div>
+        </div>
+        <div class="seconddiv" style="background-color: white;">
+            <div class="div1">
+                <h1 id="heading">Quill Rich Text Editor</h1>
+            </div>
+            <div id="div2"><span>Quill is a free, open source WYSIWYG editor built for the modern web. With its
+                    <br>modular architecture and expressive API, it is completely customizable to fit any need.</span>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        let fontoptions = document.getElementById("fontstyle")
+        let dropdrown = document.getElementById("dropdrown")
+        let heading = document.getElementById("heading")
+        console.log(heading)
+        var text = document.getElementById("div2")
+        var bold = document.getElementById("bold").addEventListener("click" , function() {
+            // text.style.fontWeight = "bold"
+            if( text.style.fontWeight == "bold"){
+                text.style.fontWeight = "normal"
+            }else{
+                text.style.fontWeight = "bold"
+            }
+        })
+        var italic = document.getElementById("italic").addEventListener("click" , function() {
+            if( text.style.fontStyle == "italic"){
+                text.style.fontStyle = "normal"
+            }else{
+                text.style.fontStyle = "italic"
+            }
+        })
+        var underline = document.getElementById("underline").addEventListener("click" , function() {
+            if( text.style.textDecoration == "underline"){
+                text.style.textDecoration = "none"
+            }else{
+                text.style.textDecoration = "underline"
+            }
+        })
+        let left = document.getElementById("left").addEventListener("click" , function(){
+            text.style.textAlign = "left"
+        })
+        let center = document.getElementById("center").addEventListener("click" , function(){
+            text.style.textAlign = "center"
+        })
+        let right = document.getElementById("right").addEventListener("click" , function(){
+            text.style.textAlign = "right"
+        })
+        let justify = document.getElementById("justify").addEventListener("click",function(){
+            text.style.textAlign = "justify"
+        })
+        
+        fontoptions.addEventListener('change',function(){
+            if(this.value == "monospace"){
+                text.style.fontFamily = "monospace"
+            }
+            if(this.value == "serif"){
+                text.style.fontFamily = "serif"
+            }
+            if(this.value == "sans-serif"){
+                text.style.fontFamily = "sans-serif"
+            }
+            if(this.value == "select font family"){
+                text.style.fontFamily = "normal"
+            }"break"
+        })
+        dropdrown.addEventListener('change',function(){
+            if(this.value == "Heading"){
+                heading.style.fontSize = "45px"
+            }
+            if(this.value == "sub-heading"){
+                heading.style.fontSize = "35px"
+            }
+            if(this.value == "Normal"){
+                heading.style.fontSize = "16px"
+            }"break"
+        })
+     
+    </script>
+
+</body>
+
+</html>
